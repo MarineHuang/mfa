@@ -1,0 +1,18 @@
+# This is a dockerfile for MFA(Montreal Forced Aligner)
+# Docker build command: docker build -t mfa:v1 .
+# In the above command, mfa is the name of image will builded, v1 is the TAG of image.
+# From this dockerfile you can build a docker containing
+# Ubuntu 18.04
+# Miniconda3
+
+# Install Anaconda/Miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Linux-x86_64.sh
+bash Miniconda3-py38_4.10.3-Linux-x86_64.sh
+
+# Create new environment
+conda create -n aligner -c conda-forge openblas python=3.8 openfst pynini ngram baumwelch
+# Activate the new environment created
+conda activate aligner
+
+Run pip install montreal-forced-aligner
+Install third-party binaries via mfa thirdparty download
